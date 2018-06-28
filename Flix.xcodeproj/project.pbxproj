@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1C7E092520E40AC000FD4754 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E092420E40AC000FD4754 /* AppDelegate.m */; };
-		1C7E092820E40AC000FD4754 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E092720E40AC000FD4754 /* ViewController.m */; };
 		1C7E092B20E40AC000FD4754 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C7E092920E40AC000FD4754 /* Main.storyboard */; };
 		1C7E092D20E40AC000FD4754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C7E092C20E40AC000FD4754 /* Assets.xcassets */; };
 		1C7E093020E40AC000FD4754 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C7E092E20E40AC000FD4754 /* LaunchScreen.storyboard */; };
 		1C7E093320E40AC000FD4754 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E093220E40AC000FD4754 /* main.m */; };
 		1C7E093D20E40AC100FD4754 /* FlixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E093C20E40AC100FD4754 /* FlixTests.m */; };
 		1C7E094820E40AC100FD4754 /* FlixUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E094720E40AC100FD4754 /* FlixUITests.m */; };
+		1C7E095720E4146F00FD4754 /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E095620E4146F00FD4754 /* MovieViewController.m */; };
+		1C7E095D20E558EE00FD4754 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E095C20E558EE00FD4754 /* MovieCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +39,6 @@
 		1C7E092020E40ABF00FD4754 /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C7E092320E40AC000FD4754 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1C7E092420E40AC000FD4754 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1C7E092620E40AC000FD4754 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1C7E092720E40AC000FD4754 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1C7E092A20E40AC000FD4754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C7E092C20E40AC000FD4754 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C7E092F20E40AC000FD4754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +50,10 @@
 		1C7E094320E40AC100FD4754 /* FlixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C7E094720E40AC100FD4754 /* FlixUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlixUITests.m; sourceTree = "<group>"; };
 		1C7E094920E40AC100FD4754 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C7E095520E4146F00FD4754 /* MovieViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
+		1C7E095620E4146F00FD4754 /* MovieViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
+		1C7E095B20E558EE00FD4754 /* MovieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
+		1C7E095C20E558EE00FD4754 /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +104,11 @@
 		1C7E092220E40ABF00FD4754 /* Flix */ = {
 			isa = PBXGroup;
 			children = (
+				1C7E095A20E4154F00FD4754 /* Models */,
+				1C7E095920E4154100FD4754 /* Views */,
+				1C7E095820E4153700FD4754 /* View Controllers */,
 				1C7E092320E40AC000FD4754 /* AppDelegate.h */,
 				1C7E092420E40AC000FD4754 /* AppDelegate.m */,
-				1C7E092620E40AC000FD4754 /* ViewController.h */,
-				1C7E092720E40AC000FD4754 /* ViewController.m */,
 				1C7E092920E40AC000FD4754 /* Main.storyboard */,
 				1C7E092C20E40AC000FD4754 /* Assets.xcassets */,
 				1C7E092E20E40AC000FD4754 /* LaunchScreen.storyboard */,
@@ -130,6 +134,31 @@
 				1C7E094920E40AC100FD4754 /* Info.plist */,
 			);
 			path = FlixUITests;
+			sourceTree = "<group>";
+		};
+		1C7E095820E4153700FD4754 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1C7E095520E4146F00FD4754 /* MovieViewController.h */,
+				1C7E095620E4146F00FD4754 /* MovieViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1C7E095920E4154100FD4754 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1C7E095B20E558EE00FD4754 /* MovieCell.h */,
+				1C7E095C20E558EE00FD4754 /* MovieCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1C7E095A20E4154F00FD4754 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +291,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C7E092820E40AC000FD4754 /* ViewController.m in Sources */,
 				1C7E093320E40AC000FD4754 /* main.m in Sources */,
 				1C7E092520E40AC000FD4754 /* AppDelegate.m in Sources */,
+				1C7E095D20E558EE00FD4754 /* MovieCell.m in Sources */,
+				1C7E095720E4146F00FD4754 /* MovieViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
