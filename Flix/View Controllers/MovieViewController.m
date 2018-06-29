@@ -11,10 +11,13 @@
 #import "UIImageView+AFNetworking.h"
 #import "DetailsViewController.h"
 
-@interface MovieViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MovieViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *movies;
+@property (nonatomic, strong) NSArray *filteredMovies;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -26,7 +29,11 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.searchBar.delegate = self;
     
+    // Start the activity indicator
+    [self.activityIndicator startAnimating];
+
     [self fetchMovies];
     
     //allocate space for refresh control
@@ -45,13 +52,9 @@
         }
         else {
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            NSLog(@"%@", dataDictionary);
             
             self.movies = dataDictionary[@"results"];
-            //look through all the movies
-            for (NSDictionary *movie in self.movies){
-                NSLog(@"%@", movie[@"title"]);
-            }
+            self.filteredMovies = self.movies;
             
             //call again because data may have changed
             [self.tableView reloadData];
@@ -61,8 +64,16 @@
             // TODO: Reload your table view data
         }
         [self.refreshControl endRefreshing];
+        
+        
+        
+        // Stop the activity indicator
+        // Hides automatically if "Hides When Stopped" is enabled
+        [self.activityIndicator stopAnimating];
     }];
     [task resume];
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -70,13 +81,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.movies.count;
+    return self.filteredMovies.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
-    NSDictionary *movie = self.movies[indexPath.row];
+    NSDictionary *movie = self.filteredMovies[indexPath.row];
     cell.titleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"overview"];
     
@@ -87,12 +98,49 @@
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
     cell.posterView.image = nil;
     [cell.posterView setImageWithURL:posterURL];
-//    cell.textLabel.text = movie[@"title"];
     
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+        MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
+    cell.shadowView.alpha=1;
+}
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
+    cell.shadowView.alpha=1;
+}
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if (searchText.length != 0) {
+        
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+            NSLog(@"%@", [evaluatedObject objectForKey:@"title"]);
+            return [[evaluatedObject objectForKey:@"title"] containsString:searchText];
+        }];
+        self.filteredMovies = [self.movies filteredArrayUsingPredicate:predicate];
+    }
+    else {
+        self.filteredMovies = self.movies;
+    }
+    
+    [self.tableView reloadData];
+    
+}
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = NO;
+    self.searchBar.text = @"";
+    [self.searchBar resignFirstResponder];
+    self.filteredMovies = self.movies;
+    
+    [self.tableView reloadData];
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
