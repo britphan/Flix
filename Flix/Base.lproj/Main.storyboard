@@ -297,7 +297,7 @@
                                         </view>
                                         <connections>
                                             <outlet property="posterView" destination="nVy-yC-j82" id="CYj-uD-6Yd"/>
-                                            <segue destination="jn5-cP-XS6" kind="push" id="Gpm-5g-qUT"/>
+                                            <segue destination="y4X-4A-PVY" kind="push" id="pWk-gd-UG8"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -319,4 +319,7 @@
         <image name="now_playing_tabbar_item" width="21" height="21"/>
         <image name="ticket_tabbar_icon" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="pWk-gd-UG8"/>
+    </inferredMetricsTieBreakers>
 </document>
