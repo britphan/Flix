@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C6FC12620E6F69D0051F483 /* RecViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6FC12520E6F69D0051F483 /* RecViewController.m */; };
 		1C7E092520E40AC000FD4754 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E092420E40AC000FD4754 /* AppDelegate.m */; };
 		1C7E092B20E40AC000FD4754 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C7E092920E40AC000FD4754 /* Main.storyboard */; };
 		1C7E092D20E40AC000FD4754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C7E092C20E40AC000FD4754 /* Assets.xcassets */; };
@@ -43,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		0EDD74B76CEB7F4214F65A0C /* Pods-FlixUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlixUITests/Pods-FlixUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1C6FC12420E6F69D0051F483 /* RecViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecViewController.h; sourceTree = "<group>"; };
+		1C6FC12520E6F69D0051F483 /* RecViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecViewController.m; sourceTree = "<group>"; };
 		1C7E092020E40ABF00FD4754 /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C7E092320E40AC000FD4754 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1C7E092420E40AC000FD4754 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				1C86AB3020E5878900848FD3 /* DetailsViewController.m */,
 				1C86AB3520E5B18400848FD3 /* MoviesGridViewController.h */,
 				1C86AB3620E5B18400848FD3 /* MoviesGridViewController.m */,
+				1C6FC12420E6F69D0051F483 /* RecViewController.h */,
+				1C6FC12520E6F69D0051F483 /* RecViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				1C7E095D20E558EE00FD4754 /* MovieCell.m in Sources */,
 				1C7E095720E4146F00FD4754 /* MovieViewController.m in Sources */,
 				1C86AB3720E5B18400848FD3 /* MoviesGridViewController.m in Sources */,
+				1C6FC12620E6F69D0051F483 /* RecViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

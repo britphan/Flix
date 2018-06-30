@@ -141,6 +141,7 @@
                     <connections>
                         <outlet property="backdropView" destination="GcK-Pd-XBU" id="r3j-Hb-TXH"/>
                         <outlet property="posterView" destination="8VD-xm-YeU" id="W8y-6Y-SYz"/>
+                        <outlet property="recView" destination="pQf-DL-6lU" id="fP4-6O-ptB"/>
                         <outlet property="scrollView" destination="Mdq-lN-FLe" id="2ex-gx-zK1"/>
                         <outlet property="synopsisLabel" destination="2PZ-YZ-x5c" id="3lJ-6B-bsa"/>
                         <outlet property="titleLabel" destination="1bo-g5-a1W" id="eXI-im-P1I"/>
@@ -148,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieS-bh-xGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="43" y="2778"/>
+            <point key="canvasLocation" x="42.5" y="2777.5"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="fnN-zK-5Ds">
@@ -184,6 +185,13 @@
                                         <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" id="pQf-DL-6lU">
+                                        <rect key="frame" x="21" y="355" width="321" height="180"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <connections>
+                                            <segue destination="Rgc-kc-1Eh" kind="embed" id="FtU-kC-3TO"/>
+                                        </connections>
+                                    </containerView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.16173595469999999" green="0.16361353470000001" blue="0.2029226036" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </scrollView>
@@ -271,8 +279,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" id="TDL-Pb-cFk">
+                                <rect key="frame" x="0.0" y="64" width="375" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" misplaced="YES" id="464-US-BKo">
+                                        <rect key="frame" x="0.0" y="-4" width="375" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="BIW-Et-ylU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="547"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="t3r-9e-kCM">
@@ -308,11 +328,62 @@
                     <navigationItem key="navigationItem" id="NeX-MV-jkR"/>
                     <connections>
                         <outlet property="collectionView" destination="BIW-Et-ylU" id="FAE-La-mMe"/>
+                        <outlet property="searchBar" destination="464-US-BKo" id="Q3m-yK-1uO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdJ-wm-qz2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045.5" y="1721.5"/>
+            <point key="canvasLocation" x="435" y="1696"/>
+        </scene>
+        <!--Rec View Controller-->
+        <scene sceneID="zS4-em-n7h">
+            <objects>
+                <viewController id="Rgc-kc-1Eh" customClass="RecViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XuZ-dC-0Py">
+                        <rect key="frame" x="0.0" y="0.0" width="321" height="180"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="QwN-62-Wpe">
+                                <rect key="frame" x="0.0" y="0.0" width="321" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mp4-kR-fE3">
+                                    <size key="itemSize" width="97" height="181"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="MovieCollectionCell" id="pxB-JN-MAE" customClass="MovieCollectionCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="97" height="181"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="97" height="181"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="lHD-7L-LB7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="97" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.83327524283070031" green="0.68857275957762987" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="posterView" destination="lHD-7L-LB7" id="PtQ-Jp-EQ9"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="QwN-62-Wpe" id="2rG-Gn-Rkq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="og2-Xa-aeX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="50.5" y="3511"/>
         </scene>
     </scenes>
     <resources>
